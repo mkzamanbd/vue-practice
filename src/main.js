@@ -3,7 +3,7 @@ import App from './App.vue'
 //vuex
 import Vuex from 'vuex'
 Vue.use(Vuex)
-import data from './index';
+import data from './store/index';
 const store = new Vuex.Store(data);
 
 //axios
@@ -11,8 +11,6 @@ const store = new Vuex.Store(data);
 // Vue.use(axios)
 // window.axion = axios
 // Vue.prototype.$axios = axios
-
-//sweetalert2
 
 
 //vue routers

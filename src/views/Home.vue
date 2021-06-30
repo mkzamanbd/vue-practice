@@ -27,7 +27,7 @@
 import Navbar from './../components/Navbar'
     export default {
         mounted(){
-            console.log(this.$store.state.userName)
+            console.log(this.$store.state.user)
         },
         components:{
             Navbar

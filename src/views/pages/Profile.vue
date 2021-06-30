@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
-                        <div class="card-header">{{getUser.name}}</div>
+                        <div class="card-header">{{ getUser.name }}</div>
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <tr>
@@ -15,10 +15,10 @@
                                     <th>JoinAt</th>
                                 </tr>
                                 <tr>
-                                    <td>{{getUser.name}}</td>
-                                    <td>{{getUser.email}}</td>
-                                    <td>{{getUser.phone}}</td>
-                                    <td>{{getUser.joined_at}}</td>
+                                    <td>{{ getUser.name }}</td>
+                                    <td>{{ getUser.email }}</td>
+                                    <td>{{ getUser.phone }}</td>
+                                    <td>{{ getUser.created_at }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -33,8 +33,8 @@
 <script>
 import Navbar from './../../components/Navbar'
     export default {
-        
-        mounted(){
+        name:'Profile',
+        created(){
             this.$store.dispatch('user')
         },
         components:{
