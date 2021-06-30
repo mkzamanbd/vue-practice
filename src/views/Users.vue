@@ -5,24 +5,23 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
-                        <div class="card-header">Posts Components</div>
+                        <div class="card-header">Users Components</div>
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Body</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
                                     <th>Action</th>
                                 </tr>
-                                <tr v-for="(post,index) in posts" :key="post.id">
+                                <tr v-for="(user,index) in users" :key="user.id">
                                     <td>{{index+1}}</td>
-                                    <td>{{post.title}}</td>
-                                    <td>{{post.body}}</td>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.email}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <router-link :to="`/post/${post.id}/view`" class="btn btn-sm btn-info">View</router-link>
                                             <a href="" class="btn btn-sm btn-primary">Edit</a>
-                                            <button @click="postDelete" class="btn btn-sm btn-danger">Delete</button>
+                                            <a href="" class="btn btn-sm btn-danger">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -37,33 +36,31 @@
 </template>
 
 <script>
-import Navbar from './Navbar'
-import axios from 'axios'
+ import axios from 'axios'
+ import Navbar from './../components/Navbar'
     export default {
-        name: "Posts",
+        name: "Users",
         data(){
             return {
-                posts:[],
+                users:[],
             }
         },
         components:{
             Navbar
         },
         mounted(){
-            this.loadPosts()
+            this.loadUsers()
+            
         },
-
         methods:{
-            loadPosts(){
-                axios.get('https://jsonplaceholder.typicode.com/posts')
+            loadUsers(){
+                axios.get('https://jsonplaceholder.typicode.com/users')
                 .then((response) => {
-                    this.posts = response.data
+                    console.log(response.data)
+                    this.users = response.data
                 }).catch((error) => {
                     console.log(error)
                 });
-            },
-            postDelete(){
-                confirm("Are You Sure?")
             }
         }
         

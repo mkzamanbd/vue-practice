@@ -1,23 +1,14 @@
-import Home from './components/Home'
-import Users from './components/Users'
-import Posts from './components/Posts'
-import PostDetails from './components/PostDetails'
-import Login from './components/pages/Login'
-import Profile from './components/pages/Profile'
-import Logout from './components/pages/Logout'
-
-
 export default [
 
     {   path: '/login',
         name:'login',
-        component: Login,
+        component: () => import('./views/pages/Login'),
     },
 
     {
         path: '/',
         name: 'home',
-        component: Home,
+        component: () => import('./views/Home'),
         meta:{
             requiresAuth: true
         }
@@ -26,14 +17,14 @@ export default [
     {
         path: '/profile',
         name: 'profile',
-        component: Profile,
+        component: () => import('./views/pages/Profile'),
         meta:{
             requiresAuth: true
         }
     },
     {
         path: '/home',
-        component: Home,
+        component: () => import('./views/Home'),
         meta:{
             requiresAuth: true
         }
@@ -41,21 +32,21 @@ export default [
 
     {
         path: '/users',
-        component: Users,
+        component: () => import('./views/Users'),
         meta:{
             requiresAuth: true
         }
     },
     {
         path: '/posts',
-        component: Posts,
+        component: () => import('./views/Posts'),
         meta:{
             requiresAuth: true
         }
     },
     {
         path: '/post/:postId/view',
-        component: PostDetails,
+        component: ()=> import('./views/PostDetails'),
         meta:{
             requiresAuth: true
         }
@@ -64,7 +55,7 @@ export default [
     {
         path: '/logout',
         name: 'logout',
-        component: Logout,
+        component: () => import('./views/pages/Logout'),
         meta:{
             requiresAuth: true
         }
