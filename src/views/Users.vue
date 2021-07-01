@@ -1,42 +1,39 @@
 <template>
-    <div>
-        <Navbar/>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">Users Components</div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Action</th>
-                                </tr>
-                                <tr v-for="(user,index) in users" :key="user.id">
-                                    <td>{{index+1}}</td>
-                                    <td>{{user.name}}</td>
-                                    <td>{{user.email}}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-primary" @click.prevent="Edit(user)">Edit</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">Users Components</div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr v-for="(user,index) in users" :key="user.id">
+                                <td>{{index+1}}</td>
+                                <td>{{user.name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-primary" @click.prevent="Edit(user)">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                    
                 </div>
+                
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Navbar from './../components/Navbar'
+    import axios from 'axios';
     export default {
         name: "Users",
         data(){
@@ -44,15 +41,12 @@
                 users:[],
             }
         },
-        components:{
-            Navbar
-        },
         mounted(){
             this.loadUsers()
         },
         methods:{
             loadUsers(){
-                this.$axios.get('https://jsonplaceholder.typicode.com/users')
+                axios.get('https://jsonplaceholder.typicode.com/users')
                 .then((response) => {
                     this.users = response.data
                 }).catch((error) => {

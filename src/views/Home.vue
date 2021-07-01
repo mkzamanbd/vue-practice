@@ -1,40 +1,39 @@
 <template>
-    <div>
-        <Navbar/>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">Home Components</div>
-                        <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam rerum aut earum quisquam expedita id maiores ut laboriosam porro minima non quos officiis impedit, aliquid animi minus sed itaque eius!Lorem</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat nesciunt facere nemo omnis consequuntur cumque est ab numquam distinctio, quos, aliquid reiciendis? Perferendis perspiciatis quos dignissimos aspernatur illum culpa libero.</p>
-                        </div>
-                        <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam rerum aut earum quisquam expedita id maiores ut laboriosam porro minima non quos officiis impedit, aliquid animi minus sed itaque eius!Lorem</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat nesciunt facere nemo omnis consequuntur cumque est ab numquam distinctio, quos, aliquid reiciendis? Perferendis perspiciatis quos dignissimos aspernatur illum culpa libero.</p>
-                        </div>
-                        <div class="card-footer">Footer Components</div>
-                    </div>
-                    
-                </div>
+    <div class="container-fluid">
+        <Banner />
+        <div class="row">
+            <div class="col-md-3">
+                <LeftSideBar />
+            </div>
+            
+            <div class="col-md-6">
+                <AddPost />
+                <PostList />
+            </div>
+
+            <div class="col-md-3">
+                <RightSideBar />
             </div>
         </div>
-    </div>
+        
+    </div><!-- container -->
 </template>
 
 <script>
-import Navbar from './../components/Navbar'
-    export default {
-        mounted(){
-            console.log(this.$store.state.user)
-        },
-        components:{
-            Navbar
-        },
+
+import Banner from './../components/Home/Banner';
+import LeftSideBar from './../components/Home/LeftSideBar';
+import AddPost from './../components/Home/AddPost';
+import PostList from './../components/Home/PostList';
+import RightSideBar from './../components/Home/RightSideBar';
+export default {
+    name:'Home',
+    components:{
+        Banner,
+        LeftSideBar,
+        AddPost,
+        PostList,
+        RightSideBar
     }
+}
 </script>
-
-<style lang="scss" scoped>
-
-</style>

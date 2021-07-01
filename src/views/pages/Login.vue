@@ -36,12 +36,12 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
-
         data(){
             return {
-                username: null,
-                password: null,
+                username: 'zaman7u@gmail.com',
+                password: '123456',
                 isLoading : false
             }
         },
@@ -51,13 +51,14 @@
         methods:{
             login(){
                 this.isLoading = true
-                this.$axios.post('http://demo-laravel.test/api/v1/auth/login',{
+                axios.post('http://demo-laravel.test/api/v1/auth/login',{
                     email: this.username,
                     password: this.password,
                     device_name: "Insomnia"
                 }).then((response) =>{
                     this.$store.commit('token', response.data.token);
                     localStorage.setItem('token', response.data.token);
+                    this.$store.dispatch("user");
                     this.$router.push({name:'home'})
                     this.isLoading = false
                 })
