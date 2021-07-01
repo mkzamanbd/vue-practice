@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import Navbar from './../components/Navbar'
-import axios from 'axios'
+    import Navbar from './../components/Navbar'
     export default {
         data(){
             return {
@@ -34,7 +33,7 @@ import axios from 'axios'
         },
         methods:{
             loadPost(){
-                axios.get('https://jsonplaceholder.typicode.com/posts/'+this.$route.params.postId)
+                this.$axios.get('https://jsonplaceholder.typicode.com/posts/'+this.$route.params.postId)
                 .then((response) => {
                     console.log(response.data)
                     this.post = response.data

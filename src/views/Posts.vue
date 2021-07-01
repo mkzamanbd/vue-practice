@@ -37,8 +37,7 @@
 </template>
 
 <script>
-import Navbar from './../components/Navbar'
-import axios from 'axios'
+    import Navbar from './../components/Navbar'
     export default {
         name: "Posts",
         data(){
@@ -55,7 +54,7 @@ import axios from 'axios'
 
         methods:{
             loadPosts(){
-                axios.get('https://jsonplaceholder.typicode.com/posts')
+                this.$axios.get('https://jsonplaceholder.typicode.com/posts')
                 .then((response) => {
                     this.posts = response.data
                 }).catch((error) => {

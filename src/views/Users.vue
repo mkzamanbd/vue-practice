@@ -20,8 +20,8 @@
                                     <td>{{user.email}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                            <button type="button" class="btn btn-sm btn-primary" @click.prevent="Edit(user)">Edit</button>
+                                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -36,8 +36,7 @@
 </template>
 
 <script>
- import axios from 'axios'
- import Navbar from './../components/Navbar'
+    import Navbar from './../components/Navbar'
     export default {
         name: "Users",
         data(){
@@ -50,17 +49,42 @@
         },
         mounted(){
             this.loadUsers()
-            
         },
         methods:{
             loadUsers(){
-                axios.get('https://jsonplaceholder.typicode.com/users')
+                this.$axios.get('https://jsonplaceholder.typicode.com/users')
                 .then((response) => {
-                    console.log(response.data)
                     this.users = response.data
                 }).catch((error) => {
                     console.log(error)
                 });
+            },
+            Edit(){
+                this.$swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    console.log(result.value)
+                    if (result.value) {
+                        this.$swal.fire({
+                            title: 'Success',
+                            text: 'Operation Successfull :)',
+                            icon: 'success'
+                        })
+                    }
+                    else{
+                        this.$swal.fire({
+                            title: 'Cancelled',
+                            text: 'Your imaginary file is safe :)',
+                            icon: 'info'
+                        })
+                    }
+                })
             }
         }
         

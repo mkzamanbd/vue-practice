@@ -1,4 +1,3 @@
-import axios from 'axios'
 export default {
 	state: {
 		token: localStorage.getItem('token') || null,
@@ -17,9 +16,9 @@ export default {
 
 	actions:{
 		user(contex){
-			axios.defaults.headers.common['Authorization'] = 'Bearer '+contex.state.token;
+			this.$axios.defaults.headers.common['Authorization'] = 'Bearer '+contex.state.token;
 			if(contex.getters.loggedIn){
-				axios.get('http://demo-laravel.test/api/v1/auth/current-user').then((response) =>{
+				this.$axios.get('http://demo-laravel.test/api/v1/auth/current-user').then((response) =>{
 					localStorage.setItem('user', response.data.user);
 					contex.commit('user', response.data.user);
 					console.log(response)

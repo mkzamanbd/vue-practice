@@ -36,7 +36,6 @@
 </template>
 
 <script>
-    import axios from 'axios'
     export default {
 
         data(){
@@ -52,7 +51,7 @@
         methods:{
             login(){
                 this.isLoading = true
-                axios.post('http://demo-laravel.test/api/v1/auth/login',{
+                this.$axios.post('http://demo-laravel.test/api/v1/auth/login',{
                     email: this.username,
                     password: this.password,
                     device_name: "Insomnia"

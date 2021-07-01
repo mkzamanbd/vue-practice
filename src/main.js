@@ -7,11 +7,16 @@ import data from './store/index';
 const store = new Vuex.Store(data);
 
 //axios
-// import axios from 'axios'
-// Vue.use(axios)
-// window.axion = axios
-// Vue.prototype.$axios = axios
+import axios from 'axios'
+Vue.use(axios)
+window.axion = axios
+Vue.prototype.$axios = axios
 
+//sweetalert2
+import VueSweetalert2 from 'vue-sweetalert2';
+// If you don't need the styles, do not connect
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2);
 
 //vue routers
 import VueRouter from 'vue-router'
