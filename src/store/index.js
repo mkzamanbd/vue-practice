@@ -48,6 +48,19 @@ export default {
 				console.log(err.response);
 			}
 		},
+
+		logout(contex){
+			axios.defaults.headers.common['Authorization'] = 'Bearer '+contex.state.token;
+			if(contex.getters.loggedIn){
+				axios.post(API_URL + '/auth/logout').then(() =>{
+					localStorage.removeItem('token');
+					localStorage.removeItem('user');
+					console.log(contex)
+				}).catch((error) => {
+					console.log(error)
+				})
+			}
+		}
 	},
 
 	mutations:{

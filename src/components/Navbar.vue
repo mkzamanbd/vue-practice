@@ -71,7 +71,7 @@
                                     </a>
                                 </li>
 
-                                <li class="nav-item" v-if="authUser">
+                                <li class="nav-item" v-if="authUser != null && authUser.name">
                                     <div class="dropdown">
                                         <a href="#" class="nav-link dropdown-toggle d-flex align-items-center justify-content-center" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                             <span>{{ authUser.name }}</span>
@@ -155,11 +155,9 @@
             }
         },
         methods:{
-            logout(){
-                console.log('logout', this.$router)
-                localStorage.removeItem('token');
-                localStorage.removeItem('user');
-                this.$store.dispatch("user");
+            async logout(){
+                await this.$store.dispatch("logout");
+                await this.$store.dispatch("user");
             }
         }
     }
