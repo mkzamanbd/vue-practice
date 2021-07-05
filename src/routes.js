@@ -1,27 +1,27 @@
 export default [
 
     {   path: '/login',
-        name:'login',
-        component: () => import('./views/pages/Login'),
+        name:'Login',
+        component: () => import('@/views/pages/Login'),
     },
 
     {
         path: '/',
-        name: 'home',
-        component: () => import('./views/Home'),
+        name: 'Home',
+        component: () => import('@/views/Home'),
     },
 
     {
         path: '/profile',
-        name: 'profile',
-        component: () => import('./views/pages/Profile'),
+        name: 'Profile',
+        component: () => import('@/views/pages/Profile'),
         meta:{
             requiresAuth: true
         }
     },
     {
         path: '/home',
-        component: () => import('./views/Home'),
+        component: () => import('@/views/Home'),
         meta:{
             requiresAuth: true
         }
@@ -29,21 +29,21 @@ export default [
 
     {
         path: '/users',
-        component: () => import('./views/Users'),
+        component: () => import('@/views/Users'),
         meta:{
             requiresAuth: true
         }
     },
     {
         path: '/posts',
-        component: () => import('./views/Posts'),
+        component: () => import('@/views/Posts'),
         meta:{
             requiresAuth: true
         }
     },
     {
         path: '/post/:postId/view',
-        component: ()=> import('./views/PostDetails'),
+        component: ()=> import('@/views/PostDetails'),
         meta:{
             requiresAuth: true
         }
@@ -52,10 +52,15 @@ export default [
     {
         path: '/logout',
         name: 'logout',
-        component: () => import('./views/pages/Logout'),
+        component: () => import('@/views/pages/Logout'),
         meta:{
             requiresAuth: true
         }
+    },
+    {
+        path:'*',
+        name:'Not found',
+        component: () => import('@/views/errors/404'),
     }
     
 ]

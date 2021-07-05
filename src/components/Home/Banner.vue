@@ -2,7 +2,7 @@
     <div class="row d-flex justify-content-center align-items-center py-3 mb-3 banner">
         <div class="col-md-6">
             <div class="text-end px-3 d-flex justify-content-end">
-                <img src="./../../assets/images/banner.svg" alt="">
+                <img src="@/assets/images/banner.svg" alt="">
             </div>
         </div>
         <div class="col-md-6">

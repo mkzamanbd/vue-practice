@@ -1,9 +1,9 @@
 import Vue from "vue";
-import App from "./App.vue";
+import App from "@/App.vue";
 //vuex
 import Vuex from "vuex";
 Vue.use(Vuex);
-import data from "./store/index";
+import data from "@/store/index";
 const store = new Vuex.Store(data);
 
 //axios
@@ -33,7 +33,7 @@ Vue.use(Vuetify);
 //vue routers
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
-import routes from "./routes";
+import routes from "@/routes";
 const router = new VueRouter({
     routes,
     mode: "history"
@@ -42,21 +42,15 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
     const currentUser = store.getters.loggedIn;
+    document.title = to.name + ' | Simple Vue CLI Experimental Project';
     if (requiresAuth && !currentUser) {
-        next({
-            name: "login"
-        });
+        next('/login');
     } else if (to.path == "/login" && currentUser) {
-        next({
-            name: "home"
-        });
+        next('/');
     } else {
         next();
     }
 });
-
-//spinner
-Vue.component("spinner", require("vue-simple-spinner"));
 
 new Vue({
     render: h => h(App),

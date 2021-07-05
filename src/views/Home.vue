@@ -21,11 +21,11 @@
 
 <script>
 
-import Banner from './../components/Home/Banner';
-import LeftSideBar from './../components/Home/LeftSideBar';
-import AddPost from './../components/Home/AddPost';
-import PostList from './../components/Home/PostList';
-import RightSideBar from './../components/Home/RightSideBar';
+import Banner from '@/components/Home/Banner';
+import LeftSideBar from '@/components/Home/LeftSideBar';
+import AddPost from '@/components/Home/AddPost';
+import PostList from '@/components/Home/PostList';
+import RightSideBar from '@/components/Home/RightSideBar';
 export default {
     name:'Home',
     components:{

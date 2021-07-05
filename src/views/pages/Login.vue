@@ -17,9 +17,12 @@
                             <div class="row">
                                 <!-- /.col -->
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-success btn-block">Sign In</button>
-                                    <br>
-                                    <span v-if="isLoading"><spinner/></span>
+                                    <button type="submit" class="btn btn-success btn-block">
+                                        <span>Sign In</span>
+                                        <div class="spinner-border spinner-border-sm ms-3" role="status" v-if="isLoading">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </button>                                    
                                 </div>
                                 <!-- /.col -->
                             </div>
