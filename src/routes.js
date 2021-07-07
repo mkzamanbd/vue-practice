@@ -21,6 +21,7 @@ export default [
     },
     {
         path: '/home',
+        name: 'Home !',
         component: () => import('@/views/Home'),
         meta:{
             requiresAuth: true
@@ -29,6 +30,7 @@ export default [
 
     {
         path: '/users',
+        name: 'User List',
         component: () => import('@/views/Users'),
         meta:{
             requiresAuth: true
@@ -36,6 +38,7 @@ export default [
     },
     {
         path: '/posts',
+        name: 'Post List',
         component: () => import('@/views/Posts'),
         meta:{
             requiresAuth: true
@@ -51,7 +54,7 @@ export default [
 
     {
         path: '/logout',
-        name: 'logout',
+        name: 'Logout',
         component: () => import('@/views/pages/Logout'),
         meta:{
             requiresAuth: true
