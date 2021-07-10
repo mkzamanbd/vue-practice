@@ -18,8 +18,8 @@
                                 <td>{{user.email}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-primary" @click.prevent="Edit(user)">Edit</button>
-                                        <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                        <button type="button" class="btn btn-sm btn-primary" @click.prevent="userEdit(user)">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-danger" @click.prevent="userDelete(user)">Delete</button>
                                     </div>
                                 </td>
                             </tr>
@@ -53,7 +53,17 @@
                     console.log(error)
                 });
             },
-            Edit(){
+
+            userEdit(user){
+                this.$bvModal.msgBoxConfirm(this.$jerpAlertModalBody('Are You sure?', 'hello', 'help'), this.$jerpConfirmAlertOptions).then(result => {
+                    (result === true) ? console.log(user) : console.log('Confirm', result);
+                })
+                .catch(err => {
+                    // An error occurred
+                    console.log('Confirm Error', err);
+                })
+            },
+            userDelete(user){
                 this.$swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -65,6 +75,7 @@
                 }).then((result) => {
                     console.log(result.value)
                     if (result.value) {
+                        console.log("User", user)
                         this.$swal.fire({
                             title: 'Success',
                             text: 'Operation Successfull :)',
