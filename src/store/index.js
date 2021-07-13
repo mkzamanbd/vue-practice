@@ -25,23 +25,23 @@ export default {
 	},
 
 	actions:{
-		user(contex){
-			axios.defaults.headers.common['Authorization'] = 'Bearer '+contex.state.token;
-			if(contex.getters.loggedIn){
+		user(context){
+			axios.defaults.headers.common['Authorization'] = 'Bearer '+context.state.token;
+			if(context.getters.loggedIn){
 				axios.get(API_URL + '/auth/current-user').then((response) =>{
 					localStorage.setItem('user', response.data.user);
-					contex.commit('user', response.data.user);
+					context.commit('user', response.data.user);
 					//console.log(response)
 				}).catch((error) => {
 					console.log(error)
 				})
 			}
 		},
-		async serverInit(contex){
+		async serverInit(context){
 			try{
 				const response = await axios.get(API_URL + "/init");
-				contex.commit('setTags', response.data.tags)
-				contex.commit('setUsers', response.data.users)
+				context.commit('setTags', response.data.tags)
+				context.commit('setUsers', response.data.users)
 				console.log('Server Init', response.data);
 
 			}catch(err){
@@ -49,13 +49,13 @@ export default {
 			}
 		},
 
-		logout(contex){
-			axios.defaults.headers.common['Authorization'] = 'Bearer '+contex.state.token;
-			if(contex.getters.loggedIn){
+		logout(context){
+			axios.defaults.headers.common['Authorization'] = 'Bearer '+context.state.token;
+			if(context.getters.loggedIn){
 				axios.post(API_URL + '/auth/logout').then(() =>{
 					localStorage.removeItem('token');
 					localStorage.removeItem('user');
-					console.log(contex)
+					console.log(context)
 				}).catch((error) => {
 					console.log(error)
 				})
