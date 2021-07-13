@@ -66,15 +66,15 @@
 }
 
 /*--------- Start Popup Modal Area ---------*/
-.jerp-alert-modal .modal-dialog {
+.alert-modal .modal-dialog {
 	width: 400px !important;
 }
 
-.jerp-alert-modal .modal-body {
+.alert-modal .modal-body {
 	height: 160px !important;
 }
 
-.jerp-alert-modal .modal-body .close {
+.alert-modal .modal-body .close {
 	position: absolute;
 	top: 15px;
 	right: 15px;
@@ -86,7 +86,7 @@
 	opacity: .5;
 }
 
-.jerp-alert-modal .modal-body .popup-content {
+.alert-modal .modal-body .popup-content {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -95,7 +95,7 @@
 	padding-top: 5px;
 }
 
-.jerp-alert-modal .modal-body .popup-content .icon {
+.alert-modal .modal-body .popup-content .icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -107,24 +107,24 @@
 	border-radius: 100px;
 }
 
-.jerp-alert-modal .modal-body .popup-content .icon .material-icons {
-	font-family: 'Material Icons';
+.alert-modal .modal-body .popup-content .icon .material-icons {
+	font-family: "Material Icons";
 	font-size: 3rem;
 }
 
-.jerp-alert-modal .modal-body .popup-content .context {
+.alert-modal .modal-body .popup-content .context {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.jerp-alert-modal .modal-body .popup-content .context h5 {
+.alert-modal .modal-body .popup-content .context h5 {
 	color: var(--text-black);
 	font-size: var(--font18);
 }
 
-.jerp-alert-modal .modal-body .popup-content .context p {
+.alert-modal .modal-body .popup-content .context p {
 	opacity: .7;
 	text-align: center;
 	color: var(--text-black);
@@ -132,16 +132,16 @@
 	font-size: 14px;
 }
 
-.jerp-alert-modal .btn-group {
+.alert-modal .btn-group {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.jerp-alert-modal .btn-group button {
+.alert-modal .btn-group button {
 	width: 150px !important;
 	height: 40px !important;
-	margin: 0px 10px !important;
+	margin: 0 10px !important;
 	font-size: var(--font14) !important;
 	text-transform: uppercase !important;
 	font-weight: 500 !important;
@@ -151,13 +151,13 @@
 	background-color: transparent !important;
 }
 
-.jerp-alert-modal.confirm .btn-group .btn-discard {
+.alert-modal.confirm .btn-group .btn-discard {
 	color: var(--red);
 	/* background-color: var(--white)!important;
   border: 1px solid var(--red)!important; */
 }
 
-.jerp-alert-modal.confirm .btn-group .btn-continue {
+.alert-modal.confirm .btn-group .btn-continue {
 	color: var(--blue);
 	/* background-color: var(--blue)!important;
   border: 1px solid var(--blue)!important; */
@@ -166,31 +166,31 @@
 
 /*--------- Start Success Popup Modal Area ---------*/
 
-.jerp-alert-modal.success .popup-content .icon {
+.alert-modal.success .popup-content .icon {
 	color: var(--green);
-	background-color: var(--greenish-white);
+	background-color: green;
 }
-.jerp-alert-modal.success .btn-group {
+.alert-modal.success .btn-group {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.jerp-alert-modal.success .btn-group .btn-continue {
+.alert-modal.success .btn-group .btn-continue {
 	color: var(--green);
 }
 /* Error modal */
-.jerp-alert-modal.error .popup-content .icon {
+.alert-modal.error .popup-content .icon {
 	color: var(--red);
 	background-color: var(--redish-white);
 }
-.jerp-alert-modal.error .btn-group {
+.alert-modal.error .btn-group {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.jerp-alert-modal.error .btn-group .btn-continue {
+.alert-modal.error .btn-group .btn-continue {
 	color: var(--red);
 }
 
