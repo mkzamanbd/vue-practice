@@ -22,7 +22,7 @@
                                         <div class="spinner-border spinner-border-sm ms-3" role="status" v-if="isLoading">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
-                                    </button>                                    
+                                    </button>
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -48,13 +48,10 @@
                 isLoading : false
             }
         },
-        mounted(){
-            
-        },
         methods:{
             login(){
                 this.isLoading = true
-                axios.post('http://demo-laravel.test/api/v1/auth/login',{
+                axios.post('http://laravel-practice.test/api/v1/auth/login',{
                     email: this.username,
                     password: this.password,
                     device_name: "Insomnia"
@@ -69,11 +66,8 @@
                     this.isLoading = false
                     console.log(error)
                 })
-
-                
             }
         }
-        
     }
 </script>
 

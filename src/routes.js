@@ -57,9 +57,6 @@ export default [
         path: '/image-crop',
         name:'Crop Image',
         component: ()=> import('@/views/ImageCrop'),
-        meta:{
-            requiresAuth: true
-        }
     },
 
     {
@@ -75,5 +72,5 @@ export default [
         name:'Not found',
         component: () => import('@/views/errors/404'),
     }
-    
+
 ]

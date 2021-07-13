@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://demo-laravel.test/api/v1'
+const API_URL = 'http://laravel-practice.test/api/v1'
 export default {
 	state: {
 		token: localStorage.getItem('token') || null,
@@ -43,7 +43,7 @@ export default {
 				contex.commit('setTags', response.data.tags)
 				contex.commit('setUsers', response.data.users)
 				console.log('Server Init', response.data);
-				
+
 			}catch(err){
 				console.log(err.response);
 			}
@@ -73,7 +73,7 @@ export default {
 		setTags(state, data) {
 			state.tags = data
 		},
-	
+
 		setUsers(state, data) {
 			state.users = data
 		}

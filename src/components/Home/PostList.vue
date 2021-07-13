@@ -29,7 +29,7 @@
                         <v-skeleton-loader type="image" v-else></v-skeleton-loader>
                         <h4 class="title my-3">{{ post.title }}</h4>
                     </router-link>
-                    
+
                     <p>Time: {{ post.posted }}</p>
                     <ul class="nav mb-2">
                         <li class="mx-1" v-for="(tag, index) in post.tags" :key="index">
@@ -76,7 +76,7 @@
 
 <script>
 import axios from 'axios'
-const API_URL = 'http://demo-laravel.test/api/v1'
+const API_URL = 'http://laravel-practice.test/api/v1'
 export default {
     name:'PostList',
     data(){
@@ -102,7 +102,7 @@ export default {
             });
         },
         getNextPosts() {
-            
+
             let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
             if (bottomOfWindow) {
                 this.isLoding = true;
