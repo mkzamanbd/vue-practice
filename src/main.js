@@ -1,16 +1,16 @@
 import Vue from "vue";
-import App from "@/App.vue";
+import App from "./App.vue";
 //vuex
 import Vuex from "vuex";
 Vue.use(Vuex);
-import data from "@/store/index";
+import data from "./store/index";
 const store = new Vuex.Store(data);
 
 // axios
 // import axios from 'axios'
-// Vue.use(axios)
-// window.axion = axios
-// Vue.prototype.$axios = axios
+// import VueAxios from 'vue-axios'
+// axios.defaults.baseURL = `http://laravel-practice.test/api/v1`
+// Vue.use(VueAxios, axios)
 
 //sweetalert2
 import VueSweetalert2 from "vue-sweetalert2";
@@ -75,7 +75,7 @@ const alertModalBody = (title, message, icon ) => {
     ])
     return element;
 }
-  
+
 Vue.prototype.$confirmAlertOption = confirmOptions
 Vue.prototype.$successAlertOption = successOptions
 Vue.prototype.$errorAlertOption = errorOptions
