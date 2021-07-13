@@ -46,7 +46,17 @@ export default [
     },
     {
         path: '/post/:postId/view',
+        name:'Post Details',
         component: ()=> import('@/views/PostDetails'),
+        meta:{
+            requiresAuth: true
+        }
+    },
+
+    {
+        path: '/image-crop',
+        name:'Crop Image',
+        component: ()=> import('@/views/ImageCrop'),
         meta:{
             requiresAuth: true
         }
