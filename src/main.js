@@ -76,12 +76,12 @@ const alertModalBody = (title, message, icon ) => {
     return element;
 }
   
-  Vue.prototype.$jerpConfirmAlertOptions = confirmOptions
-  Vue.prototype.$jerpSuccessAlertOptions = successOptions
-  Vue.prototype.$jerpErrorAlertOptions = errorOptions
-  Vue.prototype.$jerpAlertModalBody = alertModalBody
-  
+Vue.prototype.$confirmAlertOption = confirmOptions
+Vue.prototype.$successAlertOption = successOptions
+Vue.prototype.$errorAlertOption = errorOptions
+Vue.prototype.$alertModalBody = alertModalBody
 
+Vue.config.productionTip = false;
 //vue routers
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
