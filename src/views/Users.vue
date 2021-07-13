@@ -55,7 +55,7 @@
             },
 
             userEdit(user){
-                this.$bvModal.msgBoxConfirm(this.$jerpAlertModalBody('Are You sure?', 'hello', 'help'), this.$jerpConfirmAlertOptions).then(result => {
+                this.$bvModal.msgBoxConfirm(this.$alertModalBody('Are You sure?', 'hello', 'help'), this.$confirmAlertOption).then(result => {
                     (result === true) ? console.log(user) : console.log('Confirm', result);
                 })
                 .catch(err => {
