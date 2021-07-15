@@ -66,7 +66,7 @@ export default {
     methods: {
         cropImage() {
             // get image data for post processing, e.g. upload or setting image src
-            this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
+            this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL('image/jpeg', 0.4);
         },
         flipX() {
             const dom = this.$refs.flipX;
