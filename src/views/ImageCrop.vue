@@ -66,7 +66,15 @@ export default {
     methods: {
         cropImage() {
             // get image data for post processing, e.g. upload or setting image src
-            this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL('image/jpeg', 0.4);
+            this.cropImg = this.$refs.cropper.getCroppedCanvas({
+                // manage max width and height
+                // minWidth: 256,
+                // minHeight: 256,
+                // maxWidth: 1000,
+                // maxHeight: 1000,
+                width: 1000,
+                height: 1000,
+            }).toDataURL('image/jpeg', 0.4);
         },
         flipX() {
             const dom = this.$refs.flipX;
