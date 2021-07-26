@@ -57,6 +57,9 @@ export default [
         path: '/image-crop',
         name:'Crop Image',
         component: ()=> import('@/views/ImageCrop'),
+        meta:{
+            requiresAuth: false
+        }
     },
 
     {
@@ -67,6 +70,16 @@ export default [
             requiresAuth: true
         }
     },
+
+    {
+        path: '/select-checkbox',
+        name:'Select Checkbox',
+        component: ()=> import('@/views/pages/SelectCheckbox'),
+        meta:{
+            requiresAuth: false
+        }
+    },
+
     {
         path:'*',
         name:'Not found',
