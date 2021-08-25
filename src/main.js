@@ -31,7 +31,7 @@ Vue.use(Vuetify);
 //custom modal
 import './assets/css/modal.css'
 //confirm modal option
-const confirmOptions = {
+Vue.prototype.$confirmAlertOption = {
     headerClass:'border-bottom-0',
     footerClass:'border-top-0 btn-group pt-0',
     okVariant:'primary btn-continue',
@@ -42,7 +42,7 @@ const confirmOptions = {
     //centered: true
 }
 //success modal option
-const successOptions = {
+Vue.prototype.$successAlertOption = {
     headerClass:'border-bottom-0',
     footerClass:'border-top-0 btn-group pt-0 d-flex justify-content-center',
     okVariant:'primary btn-continue',
@@ -50,7 +50,7 @@ const successOptions = {
     modalClass:'jerp-alert-modal success',
 }
 //error modal option
-const errorOptions = {
+Vue.prototype.$errorAlertOption = {
     headerClass:'border-bottom-0',
     footerClass:'border-top-0 btn-group pt-0 d-flex justify-content-center',
     okVariant:'primary btn-continue',
@@ -60,10 +60,10 @@ const errorOptions = {
 
 //alert modal body
 
-const alertModalBody = (title, message, icon ) => {
+Vue.prototype.$alertModalBody = (title, message, icon ) => {
     let vueInstant = new Vue();
     const h = vueInstant.$createElement
-    const element = h('div', { class: ['popup-content'] }, [
+    return h('div', { class: ['popup-content'] }, [
         h('div', { class: ['icon'] }, [
             h('span', { class:['material-icons']}, [icon]),
         ]),
@@ -72,14 +72,8 @@ const alertModalBody = (title, message, icon ) => {
             h('h5', title),
             h('p', message),
         ]),
-    ])
-    return element;
+    ]);
 }
-
-Vue.prototype.$confirmAlertOption = confirmOptions
-Vue.prototype.$successAlertOption = successOptions
-Vue.prototype.$errorAlertOption = errorOptions
-Vue.prototype.$alertModalBody = alertModalBody
 
 Vue.config.productionTip = false;
 //vue routers
