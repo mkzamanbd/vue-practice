@@ -6,11 +6,9 @@ Vue.use(Vuex);
 import data from "./store/index";
 const store = new Vuex.Store(data);
 
-// axios
-// import axios from 'axios'
-// import VueAxios from 'vue-axios'
-// axios.defaults.baseURL = `http://laravel-practice.test/api/v1`
-// Vue.use(VueAxios, axios)
+// axios default configuration
+import { xHttpRequest } from './plugins/axios-http';
+Vue.prototype.$xHttpRequest = xHttpRequest;
 
 //sweetalert2
 import VueSweetalert2 from "vue-sweetalert2";
