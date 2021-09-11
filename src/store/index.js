@@ -1,7 +1,11 @@
-import axios from 'axios';
-const API_URL = 'http://laravel-practice.test/api/v1'
-export default {
-	state: {
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex);
+
+import { xHttpRequest } from "./../plugins/axios-http";
+
+export default new Vuex.Store({
+  state: {
 		token: localStorage.getItem('token') || null,
 		user: localStorage.getItem('user') || null,
 		tags: [],
@@ -26,9 +30,8 @@ export default {
 
 	actions:{
 		user(context){
-			axios.defaults.headers.common['Authorization'] = 'Bearer '+context.state.token;
 			if(context.getters.loggedIn){
-				axios.get(API_URL + '/auth/current-user').then((response) =>{
+				xHttpRequest.get('/auth/current-user').then((response) =>{
 					localStorage.setItem('user', response.data.user);
 					context.commit('user', response.data.user);
 					//console.log(response)
@@ -39,7 +42,7 @@ export default {
 		},
 		async serverInit(context){
 			try{
-				const response = await axios.get(API_URL + "/init");
+				const response = await xHttpRequest.get("/init");
 				context.commit('setTags', response.data.tags)
 				context.commit('setUsers', response.data.users)
 				console.log('Server Init', response.data);
@@ -50,9 +53,8 @@ export default {
 		},
 
 		logout(context){
-			axios.defaults.headers.common['Authorization'] = 'Bearer '+context.state.token;
 			if(context.getters.loggedIn){
-				axios.post(API_URL + '/auth/logout').then(() =>{
+				xHttpRequest.post('/auth/logout').then(() =>{
 					localStorage.removeItem('token');
 					localStorage.removeItem('user');
 					console.log(context)
@@ -78,4 +80,6 @@ export default {
 			state.users = data
 		}
 	},
-}
+  modules: {
+  }
+})

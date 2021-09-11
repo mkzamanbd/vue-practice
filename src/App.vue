@@ -15,12 +15,14 @@ export default {
 	created() {
 		this.$store.dispatch("user");
 		this.$store.dispatch("serverInit");
-	},
-	mounted() {},
+	}
 }
 </script>
 
 <style>
+a.router-link-exact-active {
+  color: #42b983;
+}
 @media screen and (min-width: 992px) {
 	.container-fluid {
 		padding-left: 50px !important;
