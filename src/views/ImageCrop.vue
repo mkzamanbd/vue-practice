@@ -52,7 +52,6 @@
 <script>
 import VueCropper from "vue-cropperjs";
 import "cropperjs/dist/cropper.css";
-import axios from "axios";
 export default {
     components: {
         VueCropper,
@@ -132,7 +131,7 @@ export default {
                 alert('Please crop this image, then save')
             }
             else{
-                axios.post('http://laravel-practice.test/api/v1/upload-image-by-croperjs', {
+                this.$xHttpRequest.post('v1/upload-image-by-croperjs', {
                     image: this.cropImg
                 }).then(response =>{
                     if(response.status === 200){

@@ -1,6 +1,6 @@
 // plugins/axios-http.js
 import axios from 'axios';
-const BASE_URL = 'http://laravel-practice.test/api/v1'
+const BASE_URL = 'http://laravel-practice.test/api'
 //set default value on axios
 export const xHttpRequest = axios.create({
     baseURL: BASE_URL,

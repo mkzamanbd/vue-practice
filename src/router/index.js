@@ -8,19 +8,19 @@ const routes = [
     {
         path: "/login",
         name: "Login",
-        component: () => import("@/views/pages/Login"),
+        component: () => import(/* webpackChunkName: "login" */ "@/views/pages/Login"),
     },
 
     {
         path: "/",
         name: "Home",
-        component: () => import("@/views/Home"),
+        component: () => import(/* webpackChunkName: "base-home" */ "@/views/Home"),
     },
 
     {
         path: "/profile",
         name: "Profile",
-        component: () => import("@/views/pages/Profile"),
+        component: () => import(/* webpackChunkName: "profile" */ "@/views/pages/Profile"),
         meta: {
             requiresAuth: true,
         },
@@ -28,32 +28,7 @@ const routes = [
     {
         path: "/home",
         name: "Home !",
-        component: () => import("@/views/Home"),
-        meta: {
-            requiresAuth: true,
-        },
-    },
-
-    {
-        path: "/users",
-        name: "User List",
-        component: () => import("@/views/Users"),
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: "/posts",
-        name: "Post List",
-        component: () => import("@/views/Posts"),
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: "/post/:postId/view",
-        name: "Post Details",
-        component: () => import("@/views/PostDetails"),
+        component: () => import(/* webpackChunkName: "home" */ "@/views/Home"),
         meta: {
             requiresAuth: true,
         },
@@ -62,7 +37,7 @@ const routes = [
     {
         path: "/image-crop",
         name: "Crop Image",
-        component: () => import("@/views/ImageCrop"),
+        component: () => import(/* webpackChunkName: "image-crop" */ "@/views/ImageCrop"),
         meta: {
             requiresAuth: false,
         },
@@ -71,7 +46,7 @@ const routes = [
     {
         path: "/logout",
         name: "Logout",
-        component: () => import("@/views/pages/Logout"),
+        component: () => import(/* webpackChunkName: "logout" */ "@/views/pages/Logout"),
         meta: {
             requiresAuth: true,
         },
@@ -80,7 +55,7 @@ const routes = [
     {
         path: "/select-checkbox",
         name: "Select Checkbox",
-        component: () => import("@/views/pages/SelectCheckbox"),
+        component: () => import(/* webpackChunkName: "select-checkbox" */ "@/views/pages/SelectCheckbox"),
         meta: {
             requiresAuth: false,
         },

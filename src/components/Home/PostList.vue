@@ -75,8 +75,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-const API_URL = 'http://laravel-practice.test/api/v1'
 export default {
     name:'PostList',
     data(){
@@ -95,7 +93,7 @@ export default {
     },
     methods:{
         getInitialPosts() {
-            axios.get(API_URL + '/posts').then((response) => {
+            this.$xHttpRequest.get('v1/posts').then((response) => {
                 this.posts = response.data.posts.data;
             }).catch(error =>{
                 console.log(error);
@@ -107,7 +105,7 @@ export default {
             if (bottomOfWindow) {
                 this.isLoding = true;
                 let page = this.next_page++;
-                axios.get(API_URL + '/posts?page='+ page).then((response) => {
+                this.$xHttpRequest.get('v1/posts?page='+ page).then((response) => {
                     this.posts.push(...response.data.posts.data)
                     this.isLoding = false;
                 });
@@ -117,7 +115,7 @@ export default {
         loadMore() {
             this.isLoding = true;
             let page = this.next_page++;
-            axios.get(API_URL + '/posts?page='+ page).then((response) => {
+            this.$xHttpRequest.get('v1/posts?page='+ page).then((response) => {
                 this.posts.push(...response.data.posts.data)
                 this.isLoding = false;
             });
