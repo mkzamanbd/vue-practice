@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex);
 
-import { xHttpRequest } from "./../plugins/axios-http";
-
+//** init http */
+import { xHttpRequest } from "@/plugins/axios-http";
 export default new Vuex.Store({
   state: {
 		token: localStorage.getItem('token') || null,

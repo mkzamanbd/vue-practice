@@ -8,7 +8,7 @@ const routes = [
     {
         path: "/login",
         name: "Login",
-        component: () => import(/* webpackChunkName: "login" */ "@/views/pages/Login"),
+        component: () => import(/* webpackChunkName: "login" */ "@/views/Login"),
     },
 
     {
@@ -20,7 +20,7 @@ const routes = [
     {
         path: "/profile",
         name: "Profile",
-        component: () => import(/* webpackChunkName: "profile" */ "@/views/pages/Profile"),
+        component: () => import(/* webpackChunkName: "profile" */ "@/views/Profile"),
         meta: {
             requiresAuth: true,
         },
@@ -46,7 +46,7 @@ const routes = [
     {
         path: "/logout",
         name: "Logout",
-        component: () => import(/* webpackChunkName: "logout" */ "@/views/pages/Logout"),
+        component: () => import(/* webpackChunkName: "logout" */ "@/views/Logout"),
         meta: {
             requiresAuth: true,
         },
@@ -55,18 +55,10 @@ const routes = [
     {
         path: "/select-checkbox",
         name: "Select Checkbox",
-        component: () => import(/* webpackChunkName: "select-checkbox" */ "@/views/pages/SelectCheckbox"),
+        component: () => import(/* webpackChunkName: "select-checkbox" */ "@/views/SelectCheckbox"),
         meta: {
             requiresAuth: false,
         },
-    },
-    {
-        path: "/about",
-        name: "About",
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
     },
 
     {
