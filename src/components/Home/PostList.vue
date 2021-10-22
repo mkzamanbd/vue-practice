@@ -84,7 +84,13 @@ export default {
             isLoding: false
         }
     },
+    computed:{
+        getAllPosts(){
+            return this.$store.getters['siteContent/getPosts']
+        }
+    },
     mounted(){
+        this.$store.dispatch('siteContent/getPosts')
         this.getInitialPosts();
         window.addEventListener('scroll', this.getNextPosts)
     },
