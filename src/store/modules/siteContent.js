@@ -13,7 +13,7 @@ const getters = {
 
 // Actions
 const actions = {
-    getPosts({ commit }){
+    fetchPosts({ commit }){
         xHttpRequest.get('v1/posts').then((response) => {
             console.log('site content module', response.data.posts.data);
             commit('SET_POSTS', response.data.posts.data)

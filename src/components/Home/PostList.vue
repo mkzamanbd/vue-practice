@@ -85,12 +85,12 @@ export default {
         }
     },
     computed:{
-        getAllPosts(){
+        getPosts(){
             return this.$store.getters['siteContent/getPosts']
         }
     },
     mounted(){
-        this.$store.dispatch('siteContent/getPosts')
+        this.$store.dispatch('siteContent/fetchPosts')
         this.getInitialPosts();
         window.addEventListener('scroll', this.getNextPosts)
     },
