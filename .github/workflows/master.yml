@@ -23,7 +23,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           cd /var/www/html/cicd/
-          git clone https://github.com/zamanz/vue-practice.git
+          git clone https://github.com/zamanz/vue-practice.git .
           npm install
           npm run build --if-present
         
