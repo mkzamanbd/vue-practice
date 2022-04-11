@@ -121,7 +121,7 @@ export default {
         loadMore() {
             this.isLoading = true;
             let page = this.next_page++;
-            this.$xHttpRequest.get('v1/posts?page='+ page).then((response) => {
+            this.$xHttpRequest.get('posts?page='+ page).then((response) => {
                 this.posts.push(...response.data.posts.data)
                 this.isLoading = false;
             });

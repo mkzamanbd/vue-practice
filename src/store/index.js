@@ -53,7 +53,7 @@ export default new Vuex.Store({
         },
         async serverInit(context) {
             try {
-                const response = await xHttpRequest.get("init");
+                const response = await xHttpRequest.get("init-app");
                 context.commit("setTags", response.data.tags);
                 context.commit("setUsers", response.data.users);
                 console.log("Server Init", response.data);

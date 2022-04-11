@@ -31,9 +31,9 @@ jobs:
     - name: Deploy to Server
       uses: appleboy/scp-action@master
       env:
-        HOST: 203.188.245.58
+        HOST: ${{ secrets.SSH_HOST }}
         USERNAME: ${{ secrets.SSH_USERNAME }}
-        PORT: 8886
+        PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       with:
         source: "*"
