@@ -47,7 +47,7 @@
         methods:{
             login(){
                 this.isLoading = true
-                this.$xHttpRequest.post('v1/auth/login',{
+                this.$xHttpRequest.post('auth/login',{
                     email: this.username,
                     password: this.password,
                     device_name: "Insomnia"

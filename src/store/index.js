@@ -40,7 +40,7 @@ export default new Vuex.Store({
         user(context) {
             if (context.getters.loggedIn) {
                 xHttpRequest
-                    .get("v1/auth/current-user")
+                    .get("auth/current-user")
                     .then(response => {
                         localStorage.setItem("user", response.data.user);
                         context.commit("user", response.data.user);
@@ -53,7 +53,7 @@ export default new Vuex.Store({
         },
         async serverInit(context) {
             try {
-                const response = await xHttpRequest.get("v1/init");
+                const response = await xHttpRequest.get("init");
                 context.commit("setTags", response.data.tags);
                 context.commit("setUsers", response.data.users);
                 console.log("Server Init", response.data);
@@ -65,7 +65,7 @@ export default new Vuex.Store({
         logout(context) {
             if (context.getters.loggedIn) {
                 xHttpRequest
-                    .post("v1/auth/logout")
+                    .post("auth/logout")
                     .then(() => {
                         localStorage.removeItem("token");
                         localStorage.removeItem("user");

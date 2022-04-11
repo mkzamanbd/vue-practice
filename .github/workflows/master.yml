@@ -36,5 +36,5 @@ jobs:
         PORT: 8886
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       with:
-        source: "*"
+        source: "/dist"
         target: /var/www/html/cicd/

@@ -41,7 +41,7 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center col-md-12">
-                <div class="spinner-border text-success" role="status" v-if="isLoding">
+                <div class="spinner-border text-success" role="status" v-if="isLoading">
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="d-flex justify-content-center align-items-center py-2">
-            <a class="btn btn-success" href="#" @click.prevent="loadMore" v-if="!isLoding"><b>LOAD MORE</b></a>
+            <a class="btn btn-success" href="#" @click.prevent="loadMore" v-if="!isLoading"><b>LOAD MORE</b></a>
         </div>
     </div>
 </template>
@@ -81,7 +81,7 @@ export default {
         return {
             posts: [],
             next_page: 2,
-            isLoding: false
+            isLoading: false
         }
     },
     computed:{
@@ -99,7 +99,7 @@ export default {
     },
     methods:{
         getInitialPosts() {
-            this.$xHttpRequest.get('v1/posts').then((response) => {
+            this.$xHttpRequest.get('posts').then((response) => {
                 this.posts = response.data.posts.data;
             }).catch(error =>{
                 console.log(error);
@@ -109,21 +109,21 @@ export default {
 
             let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
             if (bottomOfWindow) {
-                this.isLoding = true;
+                this.isLoading = true;
                 let page = this.next_page++;
-                this.$xHttpRequest.get('v1/posts?page='+ page).then((response) => {
+                this.$xHttpRequest.get('posts?page='+ page).then((response) => {
                     this.posts.push(...response.data.posts.data)
-                    this.isLoding = false;
+                    this.isLoading = false;
                 });
             }
         },
 
         loadMore() {
-            this.isLoding = true;
+            this.isLoading = true;
             let page = this.next_page++;
             this.$xHttpRequest.get('v1/posts?page='+ page).then((response) => {
                 this.posts.push(...response.data.posts.data)
-                this.isLoding = false;
+                this.isLoading = false;
             });
         }
 
