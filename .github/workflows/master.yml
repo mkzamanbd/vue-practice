@@ -22,4 +22,3 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         server-dir: /var/www/html/cicd/
-        
