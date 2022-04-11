@@ -24,7 +24,6 @@ jobs:
         script: |
           cd /var/www/html/cicd/
           git pull origin master
-          git status
           npm install
           npm run build --if-present
         
