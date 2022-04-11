@@ -13,6 +13,7 @@
                     <span># টিউটোরিয়াল</span>
                     <span># চ্যালেঞ্জ</span>
                     <span># আলোচনা</span>
+                    <span># CI/DC</span>
                 </p>
 
                 <button class="btn btn-secondary d-flex align-items-center hover:bg-green-400 focus:outline-none hover:border-green-400" v-if="!authUser" @click="login">
