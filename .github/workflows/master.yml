@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  job_one:
+  build:
     name: 'Run Deploy'
     runs-on: ubuntu-latest
     steps:
