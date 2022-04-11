@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  web-deploy:
+  build:
     name: 'Run Deploy'
     runs-on: ubuntu-latest
     steps:
