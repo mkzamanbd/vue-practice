@@ -36,4 +36,4 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        server-dir: /cicd/
+        server-dir: /var/www/html/cicd/
