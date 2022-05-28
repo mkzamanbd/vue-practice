@@ -5,8 +5,8 @@ import router from "./router";
 import store from "./store";
 
 // axios default configuration
-import { xHttpRequest } from "./plugins/axios-http";
-Vue.prototype.$xHttpRequest = xHttpRequest;
+import useAxios from "./plugins/useAxios";
+Vue.prototype.$axios = useAxios;
 
 // import bootstrap vue
 import { BootstrapVue } from "bootstrap-vue";
@@ -21,7 +21,7 @@ Vue.use(Vuetify);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: (h) => h(App),
+    router,
+    store,
+    render: (h) => h(App),
 }).$mount("#app");

@@ -15,21 +15,19 @@
 
 <script>
 export default {
-    name:'LeftSideBarComponent',
+    name: "LeftSideBarComponent",
     data() {
         return {
             errors: [],
-            isLoading: false
-        }
+            isLoading: false,
+        };
     },
 
-    computed:{
-        tags(){
-            return this.$store.getters.getTags
-        }
+    computed: {
+        tags() {
+            return this.$store.getters.getTags;
+        },
     },
-}
+};
 </script>
-<style lang="scss">
-    
-</style>
+<style lang="scss"></style>

@@ -1,33 +1,37 @@
-import { xHttpRequest } from "@/plugins/axios-http";
+import axios from "@/plugins/useAxios";
 
 // State object
 const state = {
     posts: [],
 };
+
 // Getter functions
 const getters = {
-    getPosts(state){
-        return state.posts
-    }
+    getPosts(state) {
+        return state.posts;
+    },
 };
 
 // Actions
 const actions = {
-    fetchPosts({ commit }){
-        xHttpRequest.get('posts').then((response) => {
-            console.log('site content module', response.data.posts.data);
-            commit('SET_POSTS', response.data.posts.data)
-        }).catch(error =>{
-            console.log(error);
-        });
-    }
+    fetchPosts({ commit }) {
+        axios
+            .get("posts")
+            .then((response) => {
+                console.log("site content module", response.data.posts.data);
+                commit("SET_POSTS", response.data.posts.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
 };
 
 // Mutations
 const mutations = {
-    SET_POSTS(state, payload){
-        state.posts = payload
-    }
+    SET_POSTS(state, payload) {
+        state.posts = payload;
+    },
 };
 
 export default {
@@ -35,5 +39,5 @@ export default {
     state,
     getters,
     actions,
-    mutations
+    mutations,
 };

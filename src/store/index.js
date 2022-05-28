@@ -3,21 +3,21 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 //** init http */
-import { xHttpRequest } from "@/plugins/axios-http";
+import axios from "@/plugins/useAxios";
 
 // ? import store module
 import siteContent from "./modules/siteContent";
 
 // ? init vuex store
 export default new Vuex.Store({
-	modules:{
-		siteContent,
-	},
+    modules: {
+        siteContent,
+    },
     state: {
         token: localStorage.getItem("token") || null,
         user: localStorage.getItem("user") || null,
         tags: [],
-        users: []
+        users: [],
     },
 
     getters: {
@@ -33,27 +33,27 @@ export default new Vuex.Store({
         },
         getUsers(state) {
             return state.users;
-        }
+        },
     },
 
     actions: {
         user(context) {
             if (context.getters.loggedIn) {
-                xHttpRequest
+                axios
                     .get("auth/current-user")
-                    .then(response => {
+                    .then((response) => {
                         localStorage.setItem("user", response.data.user);
                         context.commit("user", response.data.user);
                         //console.log(response)
                     })
-                    .catch(error => {
+                    .catch((error) => {
                         console.log(error);
                     });
             }
         },
         async serverInit(context) {
             try {
-                const response = await xHttpRequest.get("init-app");
+                const response = await axios.get("init-app");
                 context.commit("setTags", response.data.tags);
                 context.commit("setUsers", response.data.users);
                 console.log("Server Init", response.data);
@@ -64,18 +64,18 @@ export default new Vuex.Store({
 
         logout(context) {
             if (context.getters.loggedIn) {
-                xHttpRequest
+                axios
                     .post("auth/logout")
                     .then(() => {
                         localStorage.removeItem("token");
                         localStorage.removeItem("user");
                         console.log(context);
                     })
-                    .catch(error => {
+                    .catch((error) => {
                         console.log(error);
                     });
             }
-        }
+        },
     },
 
     mutations: {
@@ -91,6 +91,6 @@ export default new Vuex.Store({
 
         setUsers(state, data) {
             state.users = data;
-        }
+        },
     },
 });

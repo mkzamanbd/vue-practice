@@ -5,7 +5,7 @@
             <div class="col-md-3">
                 <LeftSideBar />
             </div>
-            
+
             <div class="col-md-6">
                 <AddPost />
                 <PostList />
@@ -15,25 +15,24 @@
                 <RightSideBar />
             </div>
         </div>
-        
-    </div><!-- container -->
+    </div>
+    <!-- container -->
 </template>
 
 <script>
-
-import Banner from '@/components/Home/Banner';
-import LeftSideBar from '@/components/Home/LeftSideBar';
-import AddPost from '@/components/Home/AddPost';
-import PostList from '@/components/Home/PostList';
-import RightSideBar from '@/components/Home/RightSideBar';
+import Banner from "@/components/HomePage/HomeBanner";
+import LeftSideBar from "@/components/HomePage/LeftSideBar";
+import AddPost from "@/components/HomePage/AddPost";
+import PostList from "@/components/HomePage/PostList";
+import RightSideBar from "@/components/HomePage/RightSideBar";
 export default {
-    name:'Home',
-    components:{
+    name: "HomePage",
+    components: {
         Banner,
         LeftSideBar,
         AddPost,
         PostList,
-        RightSideBar
-    }
-}
+        RightSideBar,
+    },
+};
 </script>

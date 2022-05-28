@@ -8,27 +8,22 @@ const routes = [
     {
         path: "/login",
         name: "Login",
-        component: () => import(/* webpackChunkName: "login" */ "@/views/Login"),
+        component: () =>
+            import(/* webpackChunkName: "login" */ "@/views/UserLogin"),
     },
 
     {
         path: "/",
         name: "Home",
-        component: () => import(/* webpackChunkName: "base-home" */ "@/views/Home"),
+        component: () =>
+            import(/* webpackChunkName: "base-home" */ "@/views/HomePage"),
     },
 
     {
         path: "/profile",
         name: "Profile",
-        component: () => import(/* webpackChunkName: "profile" */ "@/views/Profile"),
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: "/home",
-        name: "Home !",
-        component: () => import(/* webpackChunkName: "home" */ "@/views/Home"),
+        component: () =>
+            import(/* webpackChunkName: "profile" */ "@/views/UserProfile"),
         meta: {
             requiresAuth: true,
         },
@@ -37,25 +32,20 @@ const routes = [
     {
         path: "/image-crop",
         name: "Crop Image",
-        component: () => import(/* webpackChunkName: "image-crop" */ "@/views/ImageCrop"),
+        component: () =>
+            import(/* webpackChunkName: "image-crop" */ "@/views/ImageCrop"),
         meta: {
             requiresAuth: false,
         },
     },
 
     {
-        path: "/logout",
-        name: "Logout",
-        component: () => import(/* webpackChunkName: "logout" */ "@/views/Logout"),
-        meta: {
-            requiresAuth: true,
-        },
-    },
-
-    {
         path: "/select-checkbox",
         name: "Select Checkbox",
-        component: () => import(/* webpackChunkName: "select-checkbox" */ "@/views/SelectCheckbox"),
+        component: () =>
+            import(
+                /* webpackChunkName: "select-checkbox" */ "@/views/SelectCheckbox"
+            ),
         meta: {
             requiresAuth: false,
         },
@@ -64,7 +54,7 @@ const routes = [
     {
         path: "*",
         name: "Not found",
-        component: () => import("@/views/errors/404"),
+        component: () => import("@/views/errors/NotFound"),
     },
 ];
 
