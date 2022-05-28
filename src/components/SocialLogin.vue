@@ -4,15 +4,6 @@
             class="btn btn-secondary github w-100 mb-2 p-2 d-flex align-items-center justify-content-center"
             @click="loginGithub"
         >
-            <v-progress-circular
-                indeterminate
-                color="primary"
-                :size="20"
-                v-if="isGithub"
-                class="mx-1"
-            >
-            </v-progress-circular>
-
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -32,15 +23,6 @@
             type="button"
             @click.prevent="loginFacebook"
         >
-            <v-progress-circular
-                indeterminate
-                color="primary"
-                :size="20"
-                v-if="isFacebook"
-                class="mx-1"
-            >
-            </v-progress-circular>
-
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -59,14 +41,6 @@
             class="btn btn-danger google w-100 p-2 d-flex align-items-center justify-content-center"
             @click="loginGoogle"
         >
-            <v-progress-circular
-                indeterminate
-                color="primary"
-                :size="20"
-                v-if="isGoogle"
-                class="mx-1"
-            >
-            </v-progress-circular>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

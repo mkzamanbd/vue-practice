@@ -1,6 +1,4 @@
-import Vue from "vue";
-import Vuex from "vuex";
-Vue.use(Vuex);
+import { createStore } from "vuex";
 
 //** init http */
 import axios from "@/plugins/useAxios";
@@ -9,10 +7,7 @@ import axios from "@/plugins/useAxios";
 import siteContent from "./modules/siteContent";
 
 // ? init vuex store
-export default new Vuex.Store({
-    modules: {
-        siteContent,
-    },
+export default createStore({
     state: {
         token: localStorage.getItem("token") || null,
         user: localStorage.getItem("user") || null,
@@ -92,5 +87,8 @@ export default new Vuex.Store({
         setUsers(state, data) {
             state.users = data;
         },
+    },
+    modules: {
+        siteContent,
     },
 });

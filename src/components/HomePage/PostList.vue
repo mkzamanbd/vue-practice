@@ -50,10 +50,7 @@
                             alt="Blog Image"
                             loading="lazy"
                         />
-                        <v-skeleton-loader
-                            type="image"
-                            v-else
-                        ></v-skeleton-loader>
+
                         <h4 class="title my-3">{{ post.title }}</h4>
                     </router-link>
 
@@ -80,43 +77,6 @@
                     role="status"
                     v-if="isLoading"
                 ></div>
-            </div>
-        </div>
-        <div class="row" v-else>
-            <div
-                class="card h-100 border-0 mb-3 bg-transparent post"
-                v-for="(item, index) in 6"
-                :key="index"
-            >
-                <div
-                    class="card-header d-flex justify-content-between p-0 mb-2 border-0 bg-transparent"
-                >
-                    <div class="col-6 p-0 d-flex align-items-center">
-                        <v-skeleton-loader type="avatar"></v-skeleton-loader>
-                        <v-skeleton-loader
-                            type="sentences"
-                            width="150"
-                            class="ms-2"
-                        ></v-skeleton-loader>
-                    </div>
-                    <div class="col-6 p-0 d-flex justify-content-end">
-                        <v-skeleton-loader type="chip"></v-skeleton-loader>
-                        <v-skeleton-loader
-                            type="chip"
-                            class="ms-2"
-                        ></v-skeleton-loader>
-                    </div>
-                </div>
-                <div class="card-body p-0">
-                    <v-skeleton-loader type="image"></v-skeleton-loader>
-                    <v-skeleton-loader
-                        type="paragraph"
-                        class="mt-2"
-                    ></v-skeleton-loader>
-                    <v-skeleton-loader type="text"></v-skeleton-loader>
-                    <v-skeleton-loader type="text"></v-skeleton-loader>
-                    <v-skeleton-loader type="text"></v-skeleton-loader>
-                </div>
             </div>
         </div>
 
@@ -152,7 +112,7 @@ export default {
         this.getInitialPosts();
         window.addEventListener("scroll", this.getNextPosts);
     },
-    beforeDestroy() {
+    unmounted() {
         window.removeEventListener("scroll", this.getNextPosts);
     },
     methods: {

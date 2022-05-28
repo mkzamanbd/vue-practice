@@ -1,19 +1,7 @@
-module.exports = {
+const { defineConfig } = require("@vue/cli-service");
+module.exports = defineConfig({
+    transpileDependencies: true,
     chainWebpack: (config) => {
         config.plugins.delete("prefetch");
     },
-    devServer: {
-        https: false,
-    },
-    configureWebpack: {
-        module: {
-            rules: [
-                {
-                    test: /\.html$/,
-                    loader: "vue-template-loader",
-                    exclude: /index.html/,
-                },
-            ],
-        },
-    },
-};
+});

@@ -37,20 +37,6 @@
                     </router-link>
                 </div>
             </div>
-            <div v-else>
-                <div
-                    class="d-flex align-items-center mb-2"
-                    v-for="(item, index) in 10"
-                    :key="index"
-                >
-                    <v-skeleton-loader type="avatar"></v-skeleton-loader>
-                    <v-skeleton-loader
-                        type="sentences"
-                        width="150"
-                        class="ms-2"
-                    ></v-skeleton-loader>
-                </div>
-            </div>
         </div>
         <div class="card-footer p-0 bg-transparent mt-3">
             <ul>
