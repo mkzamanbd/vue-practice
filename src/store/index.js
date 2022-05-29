@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 
-//** init http */
-import axios from "@/plugins/useAxios";
+import { currentUser, logout } from "@/api/useAuth";
+import { InitApp } from "@/api/useApp";
 
 // ? import store module
 import siteContent from "./modules/siteContent";
@@ -34,8 +34,7 @@ export default createStore({
     actions: {
         user(context) {
             if (context.getters.loggedIn) {
-                axios
-                    .get("auth/current-user")
+                currentUser()
                     .then((response) => {
                         localStorage.setItem("user", response.data.user);
                         context.commit("user", response.data.user);
@@ -48,7 +47,7 @@ export default createStore({
         },
         async serverInit(context) {
             try {
-                const response = await axios.get("init-app");
+                const response = await InitApp();
                 context.commit("setTags", response.data.tags);
                 context.commit("setUsers", response.data.users);
                 console.log("Server Init", response.data);
@@ -59,8 +58,7 @@ export default createStore({
 
         logout(context) {
             if (context.getters.loggedIn) {
-                axios
-                    .post("auth/logout")
+                logout()
                     .then(() => {
                         localStorage.removeItem("token");
                         localStorage.removeItem("user");

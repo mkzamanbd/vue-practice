@@ -1,1 +1,3 @@
-console.log("posts.js");
+import useAxios from "@/plugins/useAxios";
+
+export const getAllPosts = () => useAxios.get("/posts");

@@ -93,23 +93,17 @@
 </template>
 
 <script>
+import { getAllPosts } from "@/api/usePosts";
 export default {
     name: "PostList",
     data() {
         return {
             posts: [],
-            next_page: 2,
+            next_page: 1,
             isLoading: false,
         };
     },
-    computed: {
-        getPosts() {
-            return this.$store.getters["siteContent/getPosts"];
-        },
-    },
     mounted() {
-        this.$store.dispatch("siteContent/fetchPosts");
-        this.getInitialPosts();
         window.addEventListener("scroll", this.getNextPosts);
     },
     unmounted() {
@@ -117,8 +111,7 @@ export default {
     },
     methods: {
         getInitialPosts() {
-            this.$axios
-                .get("posts")
+            getAllPosts()
                 .then((response) => {
                     this.posts = response.data.posts.data;
                 })
