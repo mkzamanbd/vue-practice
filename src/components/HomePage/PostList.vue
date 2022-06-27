@@ -20,22 +20,18 @@
                     <ul class="nav navbar">
                         <li class="px-1">
                             <a href="#" class="d-flex align-items-center">
-                                <img
-                                    src="./../../assets/images/heart.svg"
-                                    alt=""
-                                />
-                                <span class="ms-2">{{
+                                <img src="./../../assets/images/heart.svg" alt />
+                                <span class="ms-2">
+                                    {{
                                     post.comments.length
-                                }}</span>
+                                    }}
+                                </span>
                             </a>
                         </li>
 
                         <li class="px-1">
                             <a href="#" class="d-flex align-items-center">
-                                <img
-                                    src="./../../assets/images/bookmark.svg"
-                                    alt=""
-                                />
+                                <img src="./../../assets/images/bookmark.svg" alt />
                                 <span class="ms-2">20</span>
                             </a>
                         </li>
@@ -56,106 +52,91 @@
 
                     <p>Time: {{ post.posted }}</p>
                     <ul class="nav mb-2">
-                        <li
-                            class="mx-1"
-                            v-for="(tag, index) in post.tags"
-                            :key="index"
-                        >
-                            <router-link :to="`/tags/${tag.slug}`"
-                                >#{{ tag.name }}</router-link
-                            >
+                        <li class="mx-1" v-for="(tag, index) in post.tags" :key="index">
+                            <router-link :to="`/tags/${tag.slug}`">#{{ tag.name }}</router-link>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div
-                class="d-flex justify-content-center align-items-center col-md-12"
-            >
-                <div
-                    class="spinner-border text-success"
-                    role="status"
-                    v-if="isLoading"
-                ></div>
+            <div class="d-flex justify-content-center align-items-center col-md-12">
+                <div class="spinner-border text-success" role="status" v-if="isLoading"></div>
             </div>
         </div>
 
         <div class="d-flex justify-content-center align-items-center py-2">
-            <a
-                class="btn btn-success"
-                href="#"
-                @click.prevent="loadMore"
-                v-if="!isLoading"
-                ><b>LOAD MORE</b></a
-            >
+            <a class="btn btn-success" href="#" @click.prevent="loadMore" v-if="!isLoading">
+                <b>LOAD MORE</b>
+            </a>
         </div>
     </div>
 </template>
 
 <script>
-import { getAllPosts } from "@/api/usePosts";
-export default {
-    name: "PostList",
-    data() {
-        return {
-            posts: [],
-            next_page: 1,
-            isLoading: false,
-        };
-    },
-    mounted() {
-        window.addEventListener("scroll", this.getNextPosts);
-    },
-    unmounted() {
-        window.removeEventListener("scroll", this.getNextPosts);
-    },
-    methods: {
-        getInitialPosts() {
-            getAllPosts()
-                .then((response) => {
-                    this.posts = response.data.posts.data;
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+    import { getAllPosts } from "@/api/usePosts";
+    export default {
+        name: "PostList",
+        data() {
+            return {
+                posts: [],
+                next_page: 1,
+                isLoading: false,
+            };
         },
-        getNextPosts() {
-            let bottomOfWindow =
-                document.documentElement.scrollTop + window.innerHeight ===
-                document.documentElement.offsetHeight;
-            if (bottomOfWindow) {
+        mounted() {
+            this.getInitialPosts();
+            window.addEventListener("scroll", this.getNextPosts);
+        },
+        unmounted() {
+            window.removeEventListener("scroll", this.getNextPosts);
+        },
+        methods: {
+            getInitialPosts() {
+                getAllPosts()
+                    .then((response) => {
+                        this.posts = response.data.posts.data;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            },
+            getNextPosts() {
+                let bottomOfWindow =
+                    document.documentElement.scrollTop + window.innerHeight ===
+                    document.documentElement.offsetHeight;
+                if (bottomOfWindow) {
+                    this.isLoading = true;
+                    let page = this.next_page++;
+                    this.$axios.get("posts?page=" + page).then((response) => {
+                        this.posts.push(...response.data.posts.data);
+                        this.isLoading = false;
+                    });
+                }
+            },
+
+            loadMore() {
                 this.isLoading = true;
                 let page = this.next_page++;
                 this.$axios.get("posts?page=" + page).then((response) => {
                     this.posts.push(...response.data.posts.data);
                     this.isLoading = false;
                 });
-            }
+            },
         },
-
-        loadMore() {
-            this.isLoading = true;
-            let page = this.next_page++;
-            this.$axios.get("posts?page=" + page).then((response) => {
-                this.posts.push(...response.data.posts.data);
-                this.isLoading = false;
-            });
-        },
-    },
-};
+    };
 </script>
 <style>
-.img-rounded {
-    border-radius: 5px;
-}
-.img-circle {
-    border-radius: 50%;
-}
-.post a {
-    text-decoration: none;
-    color: #000;
-}
-.icons div {
-    margin-left: 10px;
-}
+    .img-rounded {
+        border-radius: 5px;
+    }
+    .img-circle {
+        border-radius: 50%;
+    }
+    .post a {
+        text-decoration: none;
+        color: #000;
+    }
+    .icons div {
+        margin-left: 10px;
+    }
 </style>

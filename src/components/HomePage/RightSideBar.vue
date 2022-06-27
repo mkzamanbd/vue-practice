@@ -6,19 +6,17 @@
         </div>
         <div class="card-body p-0" v-else>
             <h4 class="user__link p-3">
-                <span class="d-flex align-items-center px-3">{{
+                <span class="d-flex align-items-center px-3">
+                    {{
                     authUser.name
-                }}</span>
+                    }}
+                </span>
             </h4>
         </div>
         <div class="card-body p-0 mt-4">
             <h6>সর্বশেষ নিবন্ধিত ব্যবহারকারী</h6>
             <div v-if="users.length > 0">
-                <div
-                    v-for="(user, index) in users"
-                    :key="index"
-                    class="p-1 mb-1"
-                >
+                <div v-for="(user, index) in users" :key="index" class="p-1 mb-1">
                     <router-link
                         :to="`/profile/${user.username}`"
                         class="text-decoration-none text-dark"
@@ -49,48 +47,48 @@
 </template>
 
 <script>
-import SocialLogin from "./../SocialLogin";
-export default {
-    name: "RightSideBar",
-    components: {
-        SocialLogin,
-    },
-    computed: {
-        users() {
-            return this.$store.getters.getUsers;
+    import SocialLogin from "@/components/SocialLogin.vue";
+    export default {
+        name: "RightSideBar",
+        components: {
+            SocialLogin,
         },
-        authUser() {
-            return this.$store.getters.user;
+        computed: {
+            users() {
+                return this.$store.getters.getUsers;
+            },
+            authUser() {
+                return this.$store.getters.user;
+            },
         },
-    },
 
-    mounted() {
-        console.log("Users", this.users);
-    },
-};
+        mounted() {
+            console.log("Users", this.users);
+        },
+    };
 </script>
 <style lang="scss" scoped>
-.user__link {
-    border-radius: 5px;
-    border: 1px solid #fde68a;
-    background: #fef3c7;
-    position: relative;
-    &::after {
-        content: "";
-        width: 10px;
-        height: 10px;
-        background: green;
-        position: absolute;
-        left: 10px;
-        border-radius: 50%;
-        bottom: 50%;
-        margin-bottom: -5px;
+    .user__link {
+        border-radius: 5px;
+        border: 1px solid #fde68a;
+        background: #fef3c7;
+        position: relative;
+        &::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: green;
+            position: absolute;
+            left: 10px;
+            border-radius: 50%;
+            bottom: 50%;
+            margin-bottom: -5px;
+        }
     }
-}
-.img-circle {
-    border-radius: 50%;
-}
-.user_image {
-    width: 60px;
-}
+    .img-circle {
+        border-radius: 50%;
+    }
+    .user_image {
+        width: 60px;
+    }
 </style>

@@ -35,7 +35,7 @@
                     d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
                 />
             </svg>
-            <span class="mx-1 text-light"> Facebook </span>
+            <span class="mx-1 text-light">Facebook</span>
         </button>
         <button
             class="btn btn-danger google w-100 p-2 d-flex align-items-center justify-content-center"
@@ -59,63 +59,63 @@
 </template>
 
 <script>
-export default {
-    name: "SocialLogin",
-    data() {
-        return {
-            errors: [],
-            isGithub: false,
-            isFacebook: false,
-            isGoogle: false,
-        };
-    },
-
-    methods: {
-        loginGithub() {
-            this.isGithub = true;
-            //this.$auth.loginWith('github');
-        },
-        loginFacebook() {
-            this.isFacebook = true;
-            //this.$auth.loginWith('facebook');
+    export default {
+        name: "SocialLogin",
+        data() {
+            return {
+                errors: [],
+                isGithub: false,
+                isFacebook: false,
+                isGoogle: false,
+            };
         },
 
-        loginGoogle() {
-            this.isGoogle = true;
-            //this.$auth.loginWith('google');
+        methods: {
+            loginGithub() {
+                this.isGithub = true;
+                //this.$auth.loginWith('github');
+            },
+            loginFacebook() {
+                this.isFacebook = true;
+                //this.$auth.loginWith('facebook');
+            },
+
+            loginGoogle() {
+                this.isGoogle = true;
+                //this.$auth.loginWith('google');
+            },
         },
-    },
-};
+    };
 </script>
 <style lang="scss" scoped>
-.github {
-    background: #414b5a;
-}
-.google {
-    background: #f04d4d;
-}
-.facebook {
-    background: #1198f5;
-}
-.modal.fade .modal-dialog {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-}
+    .github {
+        background: #414b5a;
+    }
+    .google {
+        background: #f04d4d;
+    }
+    .facebook {
+        background: #1198f5;
+    }
+    .modal.fade .modal-dialog {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
 
-.zoom-in {
-    transform: scale(0) !important;
-    opacity: 0;
-    -webkit-transition: 1.5s all 0s;
-    -moz-transition: 1.5s all 0s;
-    -ms-transition: 1.5s all 0s;
-    -o-transition: 1.5s all 0s;
-    transition: 1.5s all 0s;
-    display: block !important;
-}
+    .zoom-in {
+        transform: scale(0) !important;
+        opacity: 0;
+        -webkit-transition: 1.5s all 0s;
+        -moz-transition: 1.5s all 0s;
+        -ms-transition: 1.5s all 0s;
+        -o-transition: 1.5s all 0s;
+        transition: 1.5s all 0s;
+        display: block !important;
+    }
 
-.zoom-in.show {
-    opacity: 1;
-    transform: scale(1) !important;
-    transform: none;
-}
+    .zoom-in.show {
+        opacity: 1;
+        transform: scale(1) !important;
+        transform: none;
+    }
 </style>

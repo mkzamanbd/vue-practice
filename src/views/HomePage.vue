@@ -20,19 +20,19 @@
 </template>
 
 <script>
-import Banner from "@/components/HomePage/HomeBanner";
-import LeftSideBar from "@/components/HomePage/LeftSideBar";
-import AddPost from "@/components/HomePage/AddPost";
-import PostList from "@/components/HomePage/PostList";
-import RightSideBar from "@/components/HomePage/RightSideBar";
-export default {
-    name: "HomePage",
-    components: {
-        Banner,
-        LeftSideBar,
-        AddPost,
-        PostList,
-        RightSideBar,
-    },
-};
+    import Banner from "@/components/HomePage/HomeBanner.vue";
+    import LeftSideBar from "@/components/HomePage/LeftSideBar.vue";
+    import AddPost from "@/components/HomePage/AddPost.vue";
+    import PostList from "@/components/HomePage/PostList.vue";
+    import RightSideBar from "@/components/HomePage/RightSideBar.vue";
+    export default {
+        name: "HomePage",
+        components: {
+            Banner,
+            LeftSideBar,
+            AddPost,
+            PostList,
+            RightSideBar,
+        },
+    };
 </script>

@@ -1,10 +1,8 @@
 <template>
-    <div
-        class="row d-flex justify-content-center align-items-center py-3 mb-3 banner"
-    >
+    <div class="row d-flex justify-content-center align-items-center py-3 mb-3 banner">
         <div class="col-md-6">
             <div class="text-end px-3 d-flex justify-content-end">
-                <img src="@/assets/images/banner.svg" alt="" />
+                <img src="@/assets/images/banner.svg" alt />
             </div>
         </div>
         <div class="col-md-6">
@@ -35,12 +33,10 @@
                         xmlns="http://www.w3.org/2000/svg"
                         class="text-dark-secondary"
                     >
-                        <path
-                            d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
-                        ></path>
-                        <circle cx="8.5" cy="7" r="4"></circle>
-                        <line x1="20" y1="8" x2="20" y2="14"></line>
-                        <line x1="23" y1="11" x2="17" y2="11"></line>
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="8.5" cy="7" r="4" />
+                        <line x1="20" y1="8" x2="20" y2="14" />
+                        <line x1="23" y1="11" x2="17" y2="11" />
                     </svg>
                     <span class="ms-1">যুক্ত হোন</span>
                 </button>
@@ -50,27 +46,27 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            counter: 1,
-        };
-    },
-    computed: {
-        authUser() {
-            return this.$store.getters.user;
+    export default {
+        data() {
+            return {
+                counter: 1,
+            };
         },
-    },
-    methods: {
-        login() {
-            this.counter++;
-            console.log("Counter " + this.counter);
+        computed: {
+            authUser() {
+                return this.$store.getters.user;
+            },
         },
-    },
-};
+        methods: {
+            login() {
+                this.counter++;
+                console.log("Counter " + this.counter);
+            },
+        },
+    };
 </script>
 <style lang="scss" scoped>
-.banner {
-    background: #fdf9f3;
-}
+    .banner {
+        background: #fdf9f3;
+    }
 </style>

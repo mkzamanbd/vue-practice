@@ -38,7 +38,6 @@ export default createStore({
                     .then((response) => {
                         localStorage.setItem("user", response.data.user);
                         context.commit("user", response.data.user);
-                        //console.log(response)
                     })
                     .catch((error) => {
                         console.log(error);

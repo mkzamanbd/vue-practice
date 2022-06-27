@@ -1,26 +1,23 @@
 import { createRouter, createWebHistory } from "vue-router";
-import store from "../store";
+import store from "@/store";
 
 const routes = [
     {
         path: "/login",
         name: "Login",
-        component: () =>
-            import(/* webpackChunkName: "login" */ "@/views/UserLogin"),
+        component: () => import("@/views/UserLogin.vue"),
     },
 
     {
         path: "/",
         name: "Home",
-        component: () =>
-            import(/* webpackChunkName: "base-home" */ "@/views/HomePage"),
+        component: () => import("@/views/HomePage.vue"),
     },
 
     {
         path: "/profile",
         name: "Profile",
-        component: () =>
-            import(/* webpackChunkName: "profile" */ "@/views/UserProfile"),
+        component: () => import("@/views/UserProfile.vue"),
         meta: {
             requiresAuth: true,
         },
@@ -29,8 +26,7 @@ const routes = [
     {
         path: "/image-crop",
         name: "Crop Image",
-        component: () =>
-            import(/* webpackChunkName: "image-crop" */ "@/views/ImageCrop"),
+        component: () => import("@/views/ImageCrop.vue"),
         meta: {
             requiresAuth: false,
         },
@@ -39,10 +35,7 @@ const routes = [
     {
         path: "/select-checkbox",
         name: "Select Checkbox",
-        component: () =>
-            import(
-                /* webpackChunkName: "select-checkbox" */ "@/views/SelectCheckbox"
-            ),
+        component: () => import("@/views/SelectCheckbox.vue"),
         meta: {
             requiresAuth: false,
         },
@@ -51,12 +44,12 @@ const routes = [
     {
         path: "/:pathMatch(.*)*",
         name: "Not found",
-        component: () => import("@/views/errors/NotFound"),
+        component: () => import("@/views/errors/NotFound.vue"),
     },
 ];
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes,
 });
 

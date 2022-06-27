@@ -5,15 +5,13 @@
                 <div class="col-lg-3 col-md-3">
                     <div class="nav-brand">
                         <h2 class="m-0">
-                            <router-link to="/" class="brand__link">
-                                BLOG
-                            </router-link>
+                            <router-link to="/" class="brand__link">BLOG</router-link>
                         </h2>
                     </div>
                 </div>
 
                 <div class="col-lg-5 col-md-5 d-none d-md-block d-lg-block">
-                    <form action="">
+                    <form action>
                         <div class="input-group">
                             <input
                                 type="text"
@@ -39,15 +37,10 @@
                 </div>
 
                 <div class="col-lg-4 col-md-4">
-                    <nav
-                        class="navbar navbar-expand py-0 d-flex justify-content-end"
-                    >
+                    <nav class="navbar navbar-expand py-0 d-flex justify-content-end">
                         <div id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li
-                                    class="nav-item nav__item__rounded"
-                                    title="Home"
-                                >
+                                <li class="nav-item nav__item__rounded" title="Home">
                                     <router-link
                                         to="/"
                                         class="nav-link d-flex align-items-center justify-content-center"
@@ -73,10 +66,7 @@
                                     </router-link>
                                 </li>
 
-                                <li
-                                    class="nav-item nav__item__rounded"
-                                    title="Chat"
-                                >
+                                <li class="nav-item nav__item__rounded" title="Chat">
                                     <router-link
                                         to="/chat"
                                         class="nav-link d-flex align-items-center justify-content-center"
@@ -123,10 +113,7 @@
                                     </a>
                                 </li>
 
-                                <li
-                                    class="nav-item nav__item__rounded"
-                                    title="New post"
-                                >
+                                <li class="nav-item nav__item__rounded" title="New post">
                                     <a
                                         class="nav-link d-flex align-items-center justify-content-center"
                                         href="#"
@@ -146,10 +133,7 @@
                                     </a>
                                 </li>
 
-                                <li
-                                    class="nav-item nav__item__rounded"
-                                    title="Dark Mode"
-                                >
+                                <li class="nav-item nav__item__rounded" title="Dark Mode">
                                     <a
                                         class="nav-link d-flex align-items-center justify-content-center"
                                         href="#"
@@ -169,10 +153,7 @@
                                     </a>
                                 </li>
 
-                                <li
-                                    class="nav-item"
-                                    v-if="authUser != null && authUser.name"
-                                >
+                                <li class="nav-item" v-if="authUser != null && authUser.name">
                                     <div class="dropdown">
                                         <a
                                             href="#"
@@ -204,9 +185,7 @@
                                                             d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
                                                         />
                                                     </svg>
-                                                    <span class="ms-1"
-                                                        >My Profile</span
-                                                    >
+                                                    <span class="ms-1">My Profile</span>
                                                 </router-link>
                                             </li>
 
@@ -231,9 +210,7 @@
                                                             d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"
                                                         />
                                                     </svg>
-                                                    <span class="ms-1"
-                                                        >Dashboard</span
-                                                    >
+                                                    <span class="ms-1">Dashboard</span>
                                                 </a>
                                             </li>
 
@@ -254,9 +231,7 @@
                                                             d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
                                                         />
                                                     </svg>
-                                                    <span class="ms-1"
-                                                        >New Post</span
-                                                    >
+                                                    <span class="ms-1">New Post</span>
                                                 </a>
                                             </li>
 
@@ -277,9 +252,7 @@
                                                             d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
                                                         />
                                                     </svg>
-                                                    <span class="ms-1"
-                                                        >Bookmark</span
-                                                    >
+                                                    <span class="ms-1">Bookmark</span>
                                                 </a>
                                             </li>
 
@@ -306,9 +279,7 @@
                                                             d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
                                                         />
                                                     </svg>
-                                                    <span class="ms-1"
-                                                        >Logout</span
-                                                    >
+                                                    <span class="ms-1">Logout</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -336,9 +307,7 @@
                                                 d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
                                             />
                                         </svg>
-                                        <span class="d-none d-lg-block ps-1"
-                                            >প্রবেশ করুন</span
-                                        >
+                                        <span class="d-none d-lg-block ps-1">প্রবেশ করুন</span>
                                     </router-link>
                                 </li>
                             </ul>
@@ -351,74 +320,74 @@
 </template>
 
 <script>
-export default {
-    computed: {
-        authUser() {
-            return this.$store.getters.user;
+    export default {
+        computed: {
+            authUser() {
+                return this.$store.getters.user;
+            },
         },
-    },
-    methods: {
-        async logout() {
-            await this.$store.dispatch("logout");
-            await this.$store.dispatch("user");
+        methods: {
+            async logout() {
+                await this.$store.dispatch("logout");
+                await this.$store.dispatch("user");
+            },
         },
-    },
-};
+    };
 </script>
 
 <style lang="scss" scoped>
-.header__area {
-    background: #1f2937;
-    color: #ffffff;
-    position: sticky;
-    top: 0;
-    z-index: 1024;
-}
-.brand__link {
-    text-decoration: none;
-    color: #ffffff;
-}
-.nav__item__rounded {
-    width: 2rem;
-    height: 2rem;
-    background: #6b7280;
-    margin: 0px 10px;
-    border-radius: 50%;
-    a {
+    .header__area {
+        background: #1f2937;
+        color: #ffffff;
+        position: sticky;
+        top: 0;
+        z-index: 1024;
+    }
+    .brand__link {
+        text-decoration: none;
         color: #ffffff;
     }
-}
-.user_dropdown {
-    left: initial;
-    right: -50px !important;
-    margin-top: 8px;
-    border: none;
-    border-radius: 2px;
-    li {
+    .nav__item__rounded {
+        width: 2rem;
+        height: 2rem;
+        background: #6b7280;
+        margin: 0px 10px;
+        border-radius: 50%;
         a {
-            color: #000;
+            color: #ffffff;
         }
     }
-}
-.nav-item {
-    a {
-        color: #ffffff;
+    .user_dropdown {
+        left: initial;
+        right: -50px !important;
+        margin-top: 8px;
+        border: none;
+        border-radius: 2px;
+        li {
+            a {
+                color: #000;
+            }
+        }
     }
-}
-.search__input__box {
-    background: #4b5563;
-    color: #cfd3da;
-    border: 1px solid #6b7280;
-    padding: 10px;
-}
-.submit__btn {
-    background: #4b5563;
-    color: #cfd3da;
-    border-top: 1px solid #6b7280 !important;
-    border-right: 1px solid #6b7280 !important;
-    border-bottom: 1px solid #6b7280 !important;
-    :active {
-        outline: 0;
+    .nav-item {
+        a {
+            color: #ffffff;
+        }
     }
-}
+    .search__input__box {
+        background: #4b5563;
+        color: #cfd3da;
+        border: 1px solid #6b7280;
+        padding: 10px;
+    }
+    .submit__btn {
+        background: #4b5563;
+        color: #cfd3da;
+        border-top: 1px solid #6b7280 !important;
+        border-right: 1px solid #6b7280 !important;
+        border-bottom: 1px solid #6b7280 !important;
+        :active {
+            outline: 0;
+        }
+    }
 </style>
